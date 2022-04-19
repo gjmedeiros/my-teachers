@@ -7,13 +7,13 @@ interface INInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
 }
 
-const Input: React.FC<INInputProps> = ({ type, name, ...rest }) => {
+const InputLogin: React.FC<INInputProps> = ({ type, name, ...rest }) => {
   return (
-    <div className="input-block">
+    <div className="input-block-login">
       <input type={type} {...rest} />
-      <span className="text-input" data-placeholder={name} />
+      <span className="text-input-login" data-placeholder={name} />
     </div>
   )
 }
 
-export default Input
+export default InputLogin

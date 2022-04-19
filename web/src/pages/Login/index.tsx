@@ -6,7 +6,7 @@ import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
 import studyIcon from '../../assets/images/icons/study.svg'
 import LandingImg from '../../assets/images/landing.svg'
 import logoImg from '../../assets/images/logo.svg'
-import Input from '../../components/Input'
+import InputLogin from '../../components/Input/InputLogin'
 import { connectionsApi } from '../../hooks/connectionsApi'
 
 import './styles.css'
@@ -44,7 +44,7 @@ function Login() {
               <img src={logoImg} alt="Logotipo Proffy" />
             </header>
             <fieldset>
-              <Input
+              <InputLogin
                 name="User"
                 type="text"
                 value={user}
@@ -54,7 +54,7 @@ function Login() {
                 }}
               />
 
-              <Input
+              <InputLogin
                 name="Password"
                 type="password"
                 value={password}
@@ -71,7 +71,7 @@ function Login() {
                   Login
                 </Link>
 
-                <Link to="/give-classes" className="give-classes">
+                <Link to="/register" className="give-classes">
                   <img src={giveClassesIcon} alt="Cadastrar" />
                   Cadastrar
                 </Link>

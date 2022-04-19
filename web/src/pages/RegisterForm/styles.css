@@ -1,13 +1,13 @@
-#page-teacher-form {
+#page-register-form {
   width: 100vw;
   height: 100vh;
 }
 
-#page-teacher-form .page-header .header-content {
+#page-register-form .page-header .header-content {
   margin-bottom: 6.4rem;
 }
 
-#page-teacher-form main {
+#page-register-form main {
   background: var(--color-box-base);
   width: 100%;
   max-width: 74rem;
@@ -17,16 +17,16 @@
   overflow: hidden;
 }
 
-#page-teacher-form main fieldset {
+#page-register-form main fieldset {
   border: 0;
   padding: 0 2.4rem;
 }
 
-#page-teacher-form main fieldset + fieldset {
+#page-register-form main fieldset + fieldset {
   margin-top: 6.4rem;
 }
 
-#page-teacher-form main fieldset legend {
+#page-register-form main fieldset legend {
   font: 700 2.4rem Archivo;
   color: var(--color-text-title);
   margin-bottom: 2.4rem;
@@ -38,7 +38,31 @@
   border-bottom: 1px solid var(--color-line-in-white);
 }
 
-#page-teacher-form main fieldset legend button {
+#page-register-form main fieldset .box-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page-register-form main fieldset .button-upload {
+  width: 10rem;
+  height: 5rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  text-decoration: none;
+  margin-top: 3.2rem;
+  transition: background-color 0.2s;
+}
+
+#page-register-form main fieldset .button-upload:hover {
+  background: var(--color-secundary-dark);
+}
+
+#page-register-form main fieldset legend .button-new-schedule {
   background: none;
   border: 0;
   color: var(--color-primary);
@@ -47,27 +71,27 @@
   transition: color 0.2s;
 }
 
-#page-teacher-form main fieldset legend button:hover {
+#page-register-form main fieldset legend .button-new-schedule:hover {
   color: var(--color-primary-dark);
 }
 
-#page-teacher-form main fieldset .input-block + .textarea-block,
-#page-teacher-form main fieldset .select-block + .input-block {
+#page-register-form main fieldset .input-block-form + .textarea-block,
+#page-register-form main fieldset .select-block + .input-block-form {
   margin-top: 2.4rem;
 }
 
-#page-teacher-form main label {
+#page-register-form main label {
   color: var(--color-text-complement);
 }
 
-#page-teacher-form main footer {
+#page-register-form main footer {
   padding: 4rem 2.4rem;
   background: var(--color-box-footer);
   border-top: 1px solid var(--color-line-in-white);
   margin-top: 6.4rem;
 }
 
-#page-teacher-form main footer p {
+#page-register-form main footer p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,11 +100,11 @@
   color: var(--color-text-complement);
 }
 
-#page-teacher-form main footer p img {
+#page-register-form main footer p img {
   margin-right: 2rem;
 }
 
-#page-teacher-form main footer button {
+#page-register-form main footer button {
   width: 100%;
   height: 5.6rem;
   background: var(--color-secundary);
@@ -96,45 +120,45 @@
   margin-top: 3.2rem;
 }
 
-#page-teacher-form main footer button:hover {
+#page-register-form main footer button:hover {
   background: var(--color-secundary-dark);
 }
 
 @media (min-width: 700px) {
-  #page-teacher-form {
+  #page-register-form {
     max-width: 100vw;
   }
 
-  #page-teacher-form .page-header .header-content {
+  #page-register-form .page-header .header-content {
     margin-bottom: 0;
   }
 
-  #page-teacher-form main fieldset {
+  #page-register-form main fieldset {
     padding: 0 6.4rem;
   }
 
-  #page-teacher-form main .schedule-item {
+  #page-register-form main .schedule-item {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     column-gap: 1.6rem;
   }
 
-  #page-teacher-form main .schedule-item .input-block {
+  #page-register-form main .schedule-item .input-block-form {
     margin-top: 0 !important;
   }
 
-  #page-teacher-form main footer {
+  #page-register-form main footer {
     padding: 4rem 6.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  #page-teacher-form main footer p {
+  #page-register-form main footer p {
     justify-content: space-between;
   }
 
-  #page-teacher-form main footer button {
+  #page-register-form main footer button {
     width: 20rem;
     margin-top: 0;
   }

@@ -1,13 +1,13 @@
 /*Mobile View*/
-.input-block {
+.input-block-login {
   position: relative;
 }
 
-.input-block + .input-block {
+.input-block-login + .input-block-login {
   margin-top: 2.3rem;
 }
 
-.input-block .input {
+.input-block-login .input {
   width: 100%;
   height: 5.6rem;
   margin-top: 0.8rem;
@@ -19,7 +19,7 @@
   font: 1.6rem Archivo;
 }
 
-.text-input {
+.text-input-login {
   display: flex;
   justify-content: flex-start;
   position: absolute;
@@ -31,15 +31,7 @@
   font: 1.6rem Archivo;
 }
 
-/* .text-input::before,
-.text-input::after {
-  content: '';
-  position: absolute;
-  top: 2.7rem;
-  transition: all 0.4s;
-} */
-
-.text-input::after {
+.text-input-login::after {
   content: attr(data-placeholder);
   position: absolute;
   top: 2.7rem;
@@ -50,18 +42,18 @@
   outline: 0;
 }
 
-.input:focus + .text-input::after {
+.input:focus + .text-input-login::after {
   top: -15px;
 }
 
-.input:focus + .text-input::before {
+.input:focus + .text-input-login::before {
   width: 100%;
 }
 
-.has-val + .text-input::after {
+.has-val + .text-input-login::after {
   top: -15px;
 }
 
-.has-val + .text-input::before {
+.has-val + .text-input-login::before {
   width: 100%;
 }

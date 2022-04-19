@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react'
 
-import Input from '../../components/Input'
+import InputForm from '../../components/Input/InputForm'
 import PageHeader from '../../components/PageHeader'
 import Select from '../../components/Select'
 import TeacherItem from '../../components/TeacherItem'
@@ -70,8 +70,9 @@ function TeacherList() {
             ]}
           />
 
-          <Input
+          <InputForm
             name="Hora"
+            label="Hora"
             type="time"
             value={time}
             onChange={e => {

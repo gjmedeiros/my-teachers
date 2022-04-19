@@ -1,8 +1,8 @@
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
-import Input from '../../components/Input'
+import InputForm from '../../components/Input/InputForm'
 import PageHeader from '../../components/PageHeader'
 import Select from '../../components/Select'
 import Textarea from '../../components/Textarea'
@@ -10,7 +10,7 @@ import { classesApi } from '../../hooks/classesApi'
 
 import './styles.css'
 
-function TeacherForm() {
+function RegisterForm() {
   const navigate = useNavigate()
   const api = classesApi()
 
@@ -54,7 +54,16 @@ function TeacherForm() {
     setScheduleItems(updatedScheduleItems)
   }
 
-  const handleCreateClass = async (e: FormEvent) => {
+  const handlePhoneNumber = (event: ChangeEvent<HTMLInputElement>) => {
+    const regex = /^([0-9]{2})([0-9]{4,5})([0-9]{4})$/
+    const str = event.target.value.replace(/[^0-9]/g, '').slice(0, 11)
+
+    const result = str.replace(regex, '($1)$2-$3')
+
+    setWhatsapp(result)
+  }
+
+  const handleRegister = async (e: FormEvent) => {
     e.preventDefault()
 
     await api
@@ -70,19 +79,20 @@ function TeacherForm() {
   }
 
   return (
-    <div id="page-teacher-form" className="container">
+    <div id="page-register-form" className="container">
       <PageHeader
         title="Que incrível que você quer dar aulas."
         description="O primeiro passo é preencher este formulário de inscrição."
       />
 
       <main>
-        <form onSubmit={handleCreateClass}>
+        <form onSubmit={handleRegister}>
           <fieldset>
             <legend>Seus dados</legend>
 
-            <Input
-              name="Nome completo"
+            <InputForm
+              name="name"
+              label="Nome completo"
               type="text"
               value={name}
               onChange={e => {
@@ -90,22 +100,26 @@ function TeacherForm() {
               }}
             />
 
-            <Input
-              name="Avatar"
-              type="text"
-              value={avatar}
-              onChange={e => {
-                setAvatar(e.target.value)
-              }}
-            />
+            <div className="box-avatar">
+              <InputForm
+                name="avatar"
+                label="Avatar"
+                type="text"
+                value={avatar}
+                onChange={e => {
+                  setAvatar(e.target.value)
+                }}
+              />
+              <button className="button-upload" type="button">
+                Upload!
+              </button>
+            </div>
 
-            <Input
-              name="Whatsapp"
-              type="text"
+            <InputForm
+              name="whatsapp"
+              label="Whatsapp"
               value={whatsapp}
-              onChange={e => {
-                setWhatsapp(e.target.value)
-              }}
+              onChange={e => handlePhoneNumber(e)}
             />
 
             <Textarea
@@ -141,8 +155,9 @@ function TeacherForm() {
                 { value: 'Química', label: 'Química' }
               ]}
             />
-            <Input
-              name="Custo da hora por aula"
+            <InputForm
+              name="cost"
+              label="Custo da hora por aula"
               type="text"
               value={cost}
               onChange={e => {
@@ -154,7 +169,11 @@ function TeacherForm() {
           <fieldset>
             <legend>
               Horários disponíveis
-              <button type="button" onClick={addNewScheduleItem}>
+              <button
+                className="button-new-schedule"
+                type="button"
+                onClick={addNewScheduleItem}
+              >
                 + Novo horário
               </button>
             </legend>
@@ -180,8 +199,9 @@ function TeacherForm() {
                     ]}
                   />
 
-                  <Input
-                    name="Das"
+                  <InputForm
+                    name="from"
+                    label="Das"
                     type="time"
                     value={scheduleItem.from}
                     onChange={e =>
@@ -189,8 +209,9 @@ function TeacherForm() {
                     }
                   />
 
-                  <Input
-                    name="Até"
+                  <InputForm
+                    name="to"
+                    label="Até"
                     type="time"
                     value={scheduleItem.to}
                     onChange={e =>
@@ -216,4 +237,4 @@ function TeacherForm() {
   )
 }
 
-export default TeacherForm
+export default RegisterForm
