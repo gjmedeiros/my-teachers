@@ -82,8 +82,8 @@ function TeacherForm() {
             <legend>Seus dados</legend>
 
             <Input
-              name="name"
-              label="Nome completo"
+              name="Nome completo"
+              type="text"
               value={name}
               onChange={e => {
                 setName(e.target.value)
@@ -91,8 +91,8 @@ function TeacherForm() {
             />
 
             <Input
-              name="avatar"
-              label="Avatar"
+              name="Avatar"
+              type="text"
               value={avatar}
               onChange={e => {
                 setAvatar(e.target.value)
@@ -100,8 +100,8 @@ function TeacherForm() {
             />
 
             <Input
-              name="whatsapp"
-              label="Whatsapp"
+              name="Whatsapp"
+              type="text"
               value={whatsapp}
               onChange={e => {
                 setWhatsapp(e.target.value)
@@ -142,8 +142,8 @@ function TeacherForm() {
               ]}
             />
             <Input
-              name="cost"
-              label="Custo da hora por aula"
+              name="Custo da hora por aula"
+              type="text"
               value={cost}
               onChange={e => {
                 setCost(e.target.value)
@@ -181,17 +181,16 @@ function TeacherForm() {
                   />
 
                   <Input
-                    name="from"
-                    label="Das"
+                    name="Das"
                     type="time"
                     value={scheduleItem.from}
                     onChange={e =>
                       setScheduleItemValue(index, 'from', e.target.value)
                     }
                   />
+
                   <Input
-                    name="to"
-                    label="Até"
+                    name="Até"
                     type="time"
                     value={scheduleItem.to}
                     onChange={e =>

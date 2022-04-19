@@ -3,15 +3,15 @@ import React, { InputHTMLAttributes } from 'react'
 import './styles.css'
 
 interface INInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string
+  type: string
   name: string
 }
 
-const Input: React.FC<INInputProps> = ({ label, name, ...rest }) => {
+const Input: React.FC<INInputProps> = ({ type, name, ...rest }) => {
   return (
     <div className="input-block">
-      <label htmlFor={name}>{label}</label>
-      <input type="text" id={name} {...rest} />
+      <input type={type} {...rest} />
+      <span className="text-input" data-placeholder={name} />
     </div>
   )
 }

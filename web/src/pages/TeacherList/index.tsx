@@ -71,9 +71,8 @@ function TeacherList() {
           />
 
           <Input
+            name="Hora"
             type="time"
-            name="time"
-            label="Hora"
             value={time}
             onChange={e => {
               setTime(e.target.value)

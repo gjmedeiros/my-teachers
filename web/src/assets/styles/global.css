@@ -19,6 +19,11 @@
   --color-button-text: #ffffff;
   --color-box-base: #ffffff;
   --color-box-footer: #fafafc;
+
+  /*Teste  */
+  --color-border-input-login: #f8f8fc;
+  --color-button-primary-login: #21d4fd;
+  --color-button-secundary-login: #176999;
 }
 
 * {
