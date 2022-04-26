@@ -104,7 +104,8 @@ function RegisterForm() {
               <InputForm
                 name="avatar"
                 label="Avatar"
-                type="text"
+                type="file"
+                disabled
                 value={avatar}
                 onChange={e => {
                   setAvatar(e.target.value)

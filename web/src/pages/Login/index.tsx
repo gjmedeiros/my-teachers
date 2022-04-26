@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, FormEvent, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import giveClassesIcon from '../../assets/images/icons/give-classes.svg'
 import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
@@ -7,12 +7,15 @@ import studyIcon from '../../assets/images/icons/study.svg'
 import LandingImg from '../../assets/images/landing.svg'
 import logoImg from '../../assets/images/logo.svg'
 import InputLogin from '../../components/Input/InputLogin'
+import { AuthContext } from '../../contexts/Auth/AuthContext'
 import { connectionsApi } from '../../hooks/connectionsApi'
 
 import './styles.css'
 
 function Login() {
   const api = connectionsApi()
+  const auth = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
@@ -30,6 +33,21 @@ function Login() {
     connections()
   }, [])
 
+  const handleLogin = async (e: FormEvent) => {
+    e.preventDefault()
+
+    if (user && password) {
+      const isLogged = await auth.signin(user, password)
+
+      if (isLogged) {
+        navigate('/study')
+      } else {
+        // eslint-disable-next-line no-alert
+        alert('Falha na Autenticação')
+      }
+    }
+  }
+
   return (
     <div id="page-login">
       <div id="page-landing-content" className="container">
@@ -39,7 +57,7 @@ function Login() {
         </div>
 
         <main>
-          <form>
+          <form onSubmit={handleLogin}>
             <header>
               <img src={logoImg} alt="Logotipo Proffy" />
             </header>
@@ -66,12 +84,12 @@ function Login() {
             </fieldset>
             <footer>
               <div className="buttons-container">
-                <Link to="/study" className="study">
+                <button type="submit">
                   <img src={studyIcon} alt="Login" />
                   Login
-                </Link>
+                </button>
 
-                <Link to="/register" className="give-classes">
+                <Link to="/register">
                   <img src={giveClassesIcon} alt="Cadastrar" />
                   Cadastrar
                 </Link>

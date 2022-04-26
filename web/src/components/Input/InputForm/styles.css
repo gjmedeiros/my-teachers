@@ -22,7 +22,7 @@
   font: 1.6rem Archivo;
 }
 
-.input-block-form :focus-within::after {
+.input-block-form:focus-within::after {
   width: calc(100% - 3.2rem);
   height: 2px;
   content: '';

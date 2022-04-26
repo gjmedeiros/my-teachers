@@ -44,6 +44,35 @@
   margin: 3.2rem 0;
 }
 
+#page-login main footer .buttons-container button {
+  width: 25rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  font: 700 2rem Archivo;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  text-decoration: none;
+  color: var(--color-button-text);
+
+  transition: background-color 0.2s;
+}
+
+#page-login main footer .buttons-container button img {
+  width: 4rem;
+}
+
+#page-login main footer .buttons-container button {
+  background: var(--color-primary-lighter);
+}
+
+#page-login main footer .buttons-container button:hover {
+  background: var(--color-primary-light);
+}
+
 #page-login main footer .buttons-container a {
   width: 25rem;
   height: 6rem;
@@ -65,19 +94,11 @@
   width: 4rem;
 }
 
-#page-login main footer .buttons-container a.study {
-  background: var(--color-primary-lighter);
-}
-
-#page-login main footer .buttons-container a.give-classes {
+#page-login main footer .buttons-container a {
   background: var(--color-secundary);
 }
 
-#page-login main footer .buttons-container a.study:hover {
-  background: var(--color-primary-light);
-}
-
-#page-login main footer .buttons-container a.give-classes:hover {
+#page-login main footer .buttons-container a:hover {
   background: var(--color-secundary-dark);
 }
 

@@ -12,9 +12,8 @@ export const userApi = () => ({
       user: { id: 1, name: 'Gabriel', email: 'gjmedeiros@outlook.com' },
       token: '12345678'
     }
-    const response = await api.post('/signin', { email, password })
-
-    return response.data
+    // const response = await api.post('/signin', { email, password })
+    // return response.data
   },
   logout: async () => {
     const response = await api.post('/logout')
