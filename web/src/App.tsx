@@ -5,8 +5,6 @@ import Login from './pages/Login'
 import RegisterForm from './pages/RegisterForm'
 import TeacherList from './pages/TeacherList'
 
-import './assets/styles/global.css'
-
 function App() {
   return (
     <Routes>

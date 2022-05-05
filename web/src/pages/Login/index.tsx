@@ -6,7 +6,7 @@ import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
 import studyIcon from '../../assets/images/icons/study.svg'
 import LandingImg from '../../assets/images/landing.svg'
 import logoImg from '../../assets/images/logo.svg'
-import InputLogin from '../../components/Input/InputLogin'
+import InputLogin from '../../components/UI/Input/Login'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
 import { connectionsApi } from '../../hooks/connectionsApi'
 

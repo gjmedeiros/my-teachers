@@ -2,13 +2,14 @@ import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
-import InputForm from '../../components/Input/InputForm'
+import FileList from '../../components/FileList'
 import PageHeader from '../../components/PageHeader'
-import Select from '../../components/Select'
-import Textarea from '../../components/Textarea'
+import InputForm from '../../components/UI/Input/RegisterForm'
+import Select from '../../components/UI/Select'
+import Textarea from '../../components/UI/Textarea'
+import Upload from '../../components/Upload'
 import { classesApi } from '../../hooks/classesApi'
-
-import './styles.css'
+import { BlockFile, Container, Fieldset, Footer } from './styles'
 
 function RegisterForm() {
   const navigate = useNavigate()
@@ -79,7 +80,7 @@ function RegisterForm() {
   }
 
   return (
-    <div id="page-register-form" className="container">
+    <Container>
       <PageHeader
         title="Que incrível que você quer dar aulas."
         description="O primeiro passo é preencher este formulário de inscrição."
@@ -87,7 +88,7 @@ function RegisterForm() {
 
       <main>
         <form onSubmit={handleRegister}>
-          <fieldset>
+          <Fieldset>
             <legend>Seus dados</legend>
 
             <InputForm
@@ -100,21 +101,10 @@ function RegisterForm() {
               }}
             />
 
-            <div className="box-avatar">
-              <InputForm
-                name="avatar"
-                label="Avatar"
-                type="file"
-                disabled
-                value={avatar}
-                onChange={e => {
-                  setAvatar(e.target.value)
-                }}
-              />
-              <button className="button-upload" type="button">
-                Upload!
-              </button>
-            </div>
+            <BlockFile>
+              <Upload />
+              <FileList />
+            </BlockFile>
 
             <InputForm
               name="whatsapp"
@@ -131,9 +121,9 @@ function RegisterForm() {
                 setBio(e.target.value)
               }}
             />
-          </fieldset>
+          </Fieldset>
 
-          <fieldset>
+          <Fieldset>
             <legend>Sobre a aula</legend>
 
             <Select
@@ -165,9 +155,9 @@ function RegisterForm() {
                 setCost(e.target.value)
               }}
             />
-          </fieldset>
+          </Fieldset>
 
-          <fieldset>
+          <Fieldset>
             <legend>
               Horários disponíveis
               <button
@@ -222,19 +212,19 @@ function RegisterForm() {
                 </div>
               )
             })}
-          </fieldset>
+          </Fieldset>
 
-          <footer>
+          <Footer>
             <p>
               <img src={warningIcon} alt="aviso importante" />
               Importante! <br />
               Preencha todos os dados
             </p>
             <button type="submit">Salvar cadastro</button>
-          </footer>
+          </Footer>
         </form>
       </main>
-    </div>
+    </Container>
   )
 }
 
