@@ -14,13 +14,13 @@ const dragReject = css`
 `
 
 export const DropContainer = styled.div<INDragStatus>`
-  border: solid 0.4rem var(--color-primary-light);
+  border: dashed 0.4rem var(--color-primary-light);
   border-radius: 0.8rem;
 
   cursor: pointer;
 
-  ${props => props.isDragActive && dragActive};
-  ${props => props.isDragReject && dragReject};
+  ${({ isDragActive }) => isDragActive && dragActive};
+  ${({ isDragReject }) => isDragReject && dragReject};
 `
 
 type colorOptions = {
@@ -35,7 +35,7 @@ const messageColors: colorOptions = {
 
 export const UploadMessage = styled.p<{ type?: string }>`
   display: flex;
-  color: ${props => messageColors[props.type || 'default']};
+  color: ${({ type }) => messageColors[type || 'default']};
   align-items: center;
   justify-content: center;
 

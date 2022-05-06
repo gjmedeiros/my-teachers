@@ -36,4 +36,13 @@ export const FileInfo = styled.div`
   }
 `
 
-export const Preview = styled.div<{ src: string }>``
+export const Preview = styled.div<{ src: string }>`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.3rem;
+  background-image: url(${({ src }) => src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-right: 0.6rem;
+`

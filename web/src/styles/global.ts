@@ -8,10 +8,12 @@ export default styled.createGlobalStyle`
   :root {
     font-size: 60%;
 
-    --color-background: #f0f0f7;
+    --color-background: #e1e1e3;
     --color-primary-lighter: #9871f5;
     --color-primary-light: #916bea;
-    --color-primary: #1f1836;
+
+    --color-primary: #04284e;
+
     --color-primary-dark: #774dd6;
     --color-primary-darker: #6842c2;
     --color-secundary: #04d361;
@@ -61,11 +63,6 @@ export default styled.createGlobalStyle`
   textarea {
     font: 500 1.6rem Poppins;
     color: var(--color-text-base);
-  }
-
-  .container {
-    width: 90vw;
-    max-width: 700px;
   }
 
   @media (min-width: 700px) {

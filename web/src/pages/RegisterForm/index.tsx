@@ -146,6 +146,7 @@ function RegisterForm() {
                 { value: 'Química', label: 'Química' }
               ]}
             />
+
             <InputForm
               name="cost"
               label="Custo da hora por aula"

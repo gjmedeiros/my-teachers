@@ -1,6 +1,6 @@
 import React, { SelectHTMLAttributes } from 'react'
 
-import './styles.css'
+import { ContainerSelect } from './styles'
 
 interface INSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string
@@ -13,7 +13,7 @@ interface INSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 const Select: React.FC<INSelectProps> = ({ label, name, options, ...rest }) => {
   return (
-    <div className="select-block">
+    <ContainerSelect>
       <label htmlFor={name}>{label}</label>
       <select value="" id={name} {...rest}>
         <option value="" disabled hidden>
@@ -28,7 +28,7 @@ const Select: React.FC<INSelectProps> = ({ label, name, options, ...rest }) => {
           )
         })}
       </select>
-    </div>
+    </ContainerSelect>
   )
 }
 

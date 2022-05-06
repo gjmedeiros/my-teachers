@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react'
 
-import './styles.css'
+import { ContainerInputLogin } from './styles'
 
 interface INInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string
@@ -9,10 +9,10 @@ interface INInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputLogin: React.FC<INInputProps> = ({ type, name, ...rest }) => {
   return (
-    <div className="input-block-login">
+    <ContainerInputLogin>
       <input type={type} {...rest} />
-      <span className="text-input-login" data-placeholder={name} />
-    </div>
+      <span data-placeholder={name} />
+    </ContainerInputLogin>
   )
 }
 

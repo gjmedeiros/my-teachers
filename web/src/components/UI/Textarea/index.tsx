@@ -1,6 +1,6 @@
 import React, { TextareaHTMLAttributes } from 'react'
 
-import './styles.css'
+import { ConatinerTextArea } from './styles'
 
 interface INTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string
@@ -9,10 +9,10 @@ interface INTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 const Textarea: React.FC<INTextareaProps> = ({ label, name, ...rest }) => {
   return (
-    <div className="textarea-block">
+    <ConatinerTextArea>
       <label htmlFor={name}>{label}</label>
       <textarea id={name} {...rest} />
-    </div>
+    </ConatinerTextArea>
   )
 }
 

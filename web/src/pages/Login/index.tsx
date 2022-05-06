@@ -9,8 +9,12 @@ import logoImg from '../../assets/images/logo.svg'
 import InputLogin from '../../components/UI/Input/Login'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
 import { connectionsApi } from '../../hooks/connectionsApi'
-
-import './styles.css'
+import {
+  Container,
+  LogoContainer,
+  ButtonsContainer,
+  TotalConnections
+} from './styles'
 
 function Login() {
   const api = connectionsApi()
@@ -49,60 +53,58 @@ function Login() {
   }
 
   return (
-    <div id="page-login">
-      <div id="page-landing-content" className="container">
-        <div className="logo-container">
-          <img src={LandingImg} alt="Plataforma de estudos" />
-          <h2>Sua plataforma de estudos online.</h2>
-        </div>
+    <Container>
+      <LogoContainer>
+        <img src={LandingImg} alt="Plataforma de estudos" />
+        <h2>Sua plataforma de estudos online.</h2>
+      </LogoContainer>
 
-        <main>
-          <form onSubmit={handleLogin}>
-            <header>
-              <img src={logoImg} alt="Logotipo Proffy" />
-            </header>
-            <fieldset>
-              <InputLogin
-                name="User"
-                type="text"
-                value={user}
-                className={user !== '' ? 'has-val input' : 'input'}
-                onChange={e => {
-                  setUser(e.target.value)
-                }}
-              />
+      <main>
+        <form onSubmit={handleLogin}>
+          <header>
+            <img src={logoImg} alt="Logotipo Proffy" />
+          </header>
+          <fieldset>
+            <InputLogin
+              name="User"
+              type="text"
+              value={user}
+              className={user !== '' ? 'has-val input' : 'input'}
+              onChange={e => {
+                setUser(e.target.value)
+              }}
+            />
 
-              <InputLogin
-                name="Password"
-                type="password"
-                value={password}
-                className={password !== '' ? 'has-val input' : 'input'}
-                onChange={e => {
-                  setPassword(e.target.value)
-                }}
-              />
-            </fieldset>
-            <footer>
-              <div className="buttons-container">
-                <button type="submit">
-                  <img src={studyIcon} alt="Login" />
-                  Login
-                </button>
+            <InputLogin
+              name="Password"
+              type="password"
+              value={password}
+              className={password !== '' ? 'has-val input' : 'input'}
+              onChange={e => {
+                setPassword(e.target.value)
+              }}
+            />
+          </fieldset>
+          <footer>
+            <ButtonsContainer>
+              <button type="submit">
+                <img src={studyIcon} alt="Login" />
+                Login
+              </button>
 
-                <Link to="/register">
-                  <img src={giveClassesIcon} alt="Cadastrar" />
-                  Cadastrar
-                </Link>
-              </div>
-              <span className="total-connections">
-                Total de {totalConnections} conexões já realizadas{' '}
-                <img src={purpleHeartIcon} alt="Coração roxo" />
-              </span>
-            </footer>
-          </form>
-        </main>
-      </div>
-    </div>
+              <Link to="/register">
+                <img src={giveClassesIcon} alt="Cadastrar" />
+                Cadastrar
+              </Link>
+            </ButtonsContainer>
+            <TotalConnections>
+              Total de {totalConnections} conexões já realizadas{' '}
+              <img src={purpleHeartIcon} alt="Coração roxo" />
+            </TotalConnections>
+          </footer>
+        </form>
+      </main>
+    </Container>
   )
 }
 

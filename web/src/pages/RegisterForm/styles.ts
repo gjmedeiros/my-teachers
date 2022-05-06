@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div.attrs({
-  className: 'container'
-})`
+export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
@@ -45,6 +43,10 @@ export const Container = styled.div.attrs({
 
         .input-block-form {
           margin-top: 0 !important;
+
+          & + .input-block-form {
+            margin-top: 1.4rem;
+          }
         }
       }
     }
@@ -77,15 +79,11 @@ export const Fieldset = styled.fieldset`
       font: 700 1.6rem Archivo;
       cursor: pointer;
       transition: color 0.2s;
-    }
 
-    .button-new-schedule:hover {
-      color: var(--color-primary-dark);
+      :hover {
+        color: var(--color-primary-dark);
+      }
     }
-  }
-
-  .button-upload:hover {
-    background: var(--color-secundary-dark);
   }
 
   .input-block-form + .textarea-block,
@@ -137,10 +135,10 @@ export const Footer = styled.footer`
     text-decoration: none;
     transition: background-color 0.2s;
     margin-top: 3.2rem;
-  }
 
-  button:hover {
-    background: var(--color-secundary-dark);
+    :hover {
+      background: var(--color-secundary-dark);
+    }
   }
 
   @media (min-width: 700px) {

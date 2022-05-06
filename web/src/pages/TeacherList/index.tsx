@@ -6,7 +6,7 @@ import InputForm from '../../components/UI/Input/RegisterForm'
 import Select from '../../components/UI/Select'
 import { classesApi } from '../../hooks/classesApi'
 import { Teacher } from '../../types/Teacher'
-import './styles.css'
+import { Container, Form } from './styles'
 
 function TeacherList() {
   const api = classesApi()
@@ -28,9 +28,9 @@ function TeacherList() {
   }
 
   return (
-    <div id="page-teacher-list" className="container">
+    <Container>
       <PageHeader title="Estes são os professores disponíveis.">
-        <form id="search-teachers" onSubmit={searchTeachers}>
+        <Form onSubmit={searchTeachers}>
           <Select
             name="subject"
             label="Matéria"
@@ -81,7 +81,7 @@ function TeacherList() {
           />
 
           <button type="submit">Buscar</button>
-        </form>
+        </Form>
       </PageHeader>
 
       <main>
@@ -89,7 +89,7 @@ function TeacherList() {
           return <TeacherItem key={teacher.id} teacher={teacher} />
         })}
       </main>
-    </div>
+    </Container>
   )
 }
 

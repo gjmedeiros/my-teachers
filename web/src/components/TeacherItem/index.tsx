@@ -3,8 +3,7 @@ import React from 'react'
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
 import { connectionsApi } from '../../hooks/connectionsApi'
 import { Teacher } from '../../types/Teacher'
-
-import './styles.css'
+import { ContainerTeacherItem } from './styles'
 
 export interface INTeacherItemProps {
   teacher: Teacher
@@ -18,7 +17,7 @@ const TeacherItem: React.FC<INTeacherItemProps> = ({ teacher }) => {
   }
 
   return (
-    <article className="teacher-item">
+    <ContainerTeacherItem>
       <header>
         <img src={teacher.avatar} alt={teacher.name} />
         <div>
@@ -44,7 +43,7 @@ const TeacherItem: React.FC<INTeacherItemProps> = ({ teacher }) => {
           Entrar em contato
         </a>
       </footer>
-    </article>
+    </ContainerTeacherItem>
   )
 }
 

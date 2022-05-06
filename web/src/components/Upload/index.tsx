@@ -48,7 +48,6 @@ const Upload = () => {
       {...getRootProps()}
       isDragActive={isDragActive}
       isDragReject={isDragReject}
-      className="dropzone"
     >
       <input {...getInputProps()} />
       {renderDragMessage(isDragActive, isDragReject)}
