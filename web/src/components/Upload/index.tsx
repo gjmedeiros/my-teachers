@@ -1,27 +1,19 @@
-import React, { useCallback, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
+import { DropEvent, useDropzone } from 'react-dropzone'
 
 import { DropContainer, UploadMessage } from './styles'
 
-const Upload = () => {
-  const [files, setFiles] = useState([])
+interface IFunctionProps {
+  onUpload: (files: File[], event: DropEvent) => void
+}
 
-  // const onDrop = useCallback(acceptedFiles => {
-  //   setFiles(
-  //     acceptedFiles.map(file =>
-  //       Object.assign(file, {
-  //         preview: URL.createObjectURL(file)
-  //       })
-  //     )
-  //   )
-  // }, [])
-
+// eslint-disable-next-line react/prop-types
+const Upload: React.FC<IFunctionProps> = ({ onUpload }) => {
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       accept: {
         'image/*': ['.jpeg', '.png']
-      }
-      // onDrop
+      },
+      onDropAccepted: onUpload
     })
 
   const renderDragMessage = (isDragActive: boolean, isDragReject: boolean) => {

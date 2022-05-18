@@ -1,3 +1,5 @@
+import filesize from 'filesize'
+import { uniqueId } from 'lodash'
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,6 +11,7 @@ import Select from '../../components/UI/Select'
 import Textarea from '../../components/UI/Textarea'
 import Upload from '../../components/Upload'
 import { classesApi } from '../../hooks/classesApi'
+import { UploadedFiles } from '../../types/UploadedFiles'
 import { BlockFile, Container, Fieldset, Footer } from './styles'
 
 function RegisterForm() {
@@ -16,7 +19,15 @@ function RegisterForm() {
   const api = classesApi()
 
   const [name, setName] = useState('')
-  const [avatar, setAvatar] = useState('')
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({
+    file: '',
+    id: '',
+    name: '',
+    readableSize: '',
+    progress: 0,
+    uploaded: false,
+    error: false
+  })
   const [whatsapp, setWhatsapp] = useState('')
   const [bio, setBio] = useState('')
   const [subject, setSubject] = useState('')
@@ -79,6 +90,22 @@ function RegisterForm() {
       })
   }
 
+  const handleUpload = (files: File[]) => {
+    const uploadFiles = files.map(file => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size),
+      progress: 0,
+      uploaded: false,
+      error: false
+    }))
+
+    setUploadedFiles()
+
+    return files
+  }
+
   return (
     <Container>
       <PageHeader
@@ -102,7 +129,7 @@ function RegisterForm() {
             />
 
             <BlockFile>
-              <Upload />
+              <Upload onUpload={handleUpload} />
               <FileList />
             </BlockFile>
 

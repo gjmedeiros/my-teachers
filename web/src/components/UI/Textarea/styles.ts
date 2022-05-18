@@ -5,14 +5,18 @@ export const ConatinerTextArea = styled.div.attrs({
 })`
   position: relative;
 
+  /* .textarea-block + .textarea-block {
+    margin-top: 1.4rem;
+  } */
+
   label {
     font-size: 1.4rem;
   }
 
   textarea {
     width: 100%;
-    height: 16rem;
     min-height: 8rem;
+    max-height: 18rem;
     margin-top: 0.8rem;
     border-radius: 0.8rem;
     background: var(--color-input-background);
@@ -25,7 +29,7 @@ export const ConatinerTextArea = styled.div.attrs({
 
   :focus-within::after {
     width: calc(100% - 3.2rem);
-    height: 2px;
+    height: 0.2rem;
     content: '';
     background: var(--color-primary-light);
     position: absolute;
