@@ -19,15 +19,9 @@ function RegisterForm() {
   const api = classesApi()
 
   const [name, setName] = useState('')
-  const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({
-    id: '',
-    name: '',
-    readableSize: '',
-    preview: '',
-    progress: 0,
-    uploaded: false,
-    error: false
-  })
+
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles | null>()
+
   const [whatsapp, setWhatsapp] = useState('')
   const [bio, setBio] = useState('')
   const [subject, setSubject] = useState('')
@@ -42,14 +36,18 @@ function RegisterForm() {
   ])
 
   const addNewScheduleItem = () => {
-    setScheduleItems([
-      ...scheduleItems,
-      {
-        week_day: 0,
-        from: '',
-        to: ''
-      }
-    ])
+    if (scheduleItems.length < 7) {
+      setScheduleItems([
+        ...scheduleItems,
+        {
+          week_day: 0,
+          from: '',
+          to: ''
+        }
+      ])
+    } else {
+      alert('Você Atingiu o limite de dias')
+    }
   }
 
   const setScheduleItemValue = (
@@ -81,7 +79,7 @@ function RegisterForm() {
     await api
       .create(
         name,
-        uploadedFiles.name,
+        uploadedFiles!.preview,
         whatsapp,
         bio,
         subject,
@@ -137,7 +135,7 @@ function RegisterForm() {
 
             <BlockFile>
               <Upload onUpload={handleUpload} />
-              {!uploadedFiles && <FileList file={uploadedFiles} />}
+              {uploadedFiles != null && <FileList file={uploadedFiles} />}
             </BlockFile>
 
             <InputForm
