@@ -2,12 +2,12 @@ import { DropEvent, useDropzone } from 'react-dropzone'
 
 import { DropContainer, UploadMessage } from './styles'
 
-interface IFunctionProps {
+interface IUploadProps {
   onUpload: (files: File[], event: DropEvent) => void
 }
 
 // eslint-disable-next-line react/prop-types
-const Upload: React.FC<IFunctionProps> = ({ onUpload }) => {
+const Upload: React.FC<IUploadProps> = ({ onUpload }) => {
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       accept: {

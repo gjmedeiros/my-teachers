@@ -20,10 +20,10 @@ function RegisterForm() {
 
   const [name, setName] = useState('')
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({
-    file: '',
     id: '',
     name: '',
     readableSize: '',
+    preview: '',
     progress: 0,
     uploaded: false,
     error: false
@@ -79,7 +79,15 @@ function RegisterForm() {
     e.preventDefault()
 
     await api
-      .create(name, avatar, whatsapp, bio, subject, cost, scheduleItems)
+      .create(
+        name,
+        uploadedFiles.name,
+        whatsapp,
+        bio,
+        subject,
+        cost,
+        scheduleItems
+      )
       .then(() => {
         alert('Cadastro realizado com sucesso!')
 
@@ -91,19 +99,18 @@ function RegisterForm() {
   }
 
   const handleUpload = (files: File[]) => {
-    const uploadFiles = files.map(file => ({
-      file,
-      id: uniqueId(),
-      name: file.name,
-      readableSize: filesize(file.size),
-      progress: 0,
-      uploaded: false,
-      error: false
-    }))
-
-    setUploadedFiles()
-
-    return files
+    // eslint-disable-next-line array-callback-return
+    files.map(file => {
+      setUploadedFiles({
+        id: uniqueId(),
+        name: file.name,
+        readableSize: filesize(file.size),
+        preview: URL.createObjectURL(file),
+        progress: 0,
+        uploaded: false,
+        error: false
+      })
+    })
   }
 
   return (
@@ -130,7 +137,7 @@ function RegisterForm() {
 
             <BlockFile>
               <Upload onUpload={handleUpload} />
-              <FileList />
+              {!uploadedFiles && <FileList file={uploadedFiles} />}
             </BlockFile>
 
             <InputForm

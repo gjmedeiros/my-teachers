@@ -33,11 +33,16 @@ export const Container = styled.div`
   @media (min-width: 1100px) {
     /*Desktop View*/
 
+    display: flex;
+    justify-content: space-around;
+
     main {
       border: 0rem;
       padding: 0 2.8rem;
 
       header {
+        padding: 1rem 0rem;
+
         img {
           height: 12rem;
         }
