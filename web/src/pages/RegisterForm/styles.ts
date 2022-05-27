@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   main {
     background: var(--color-box-base);
-    /* background: #000000; */
 
     width: 100%;
     max-width: 74rem;
@@ -45,7 +44,7 @@ export const Container = styled.div`
           margin-top: 0 !important;
 
           & + .input-block-form {
-            margin-top: 1.4rem;
+            margin-top: 1.5rem;
           }
         }
       }
@@ -84,6 +83,22 @@ export const Fieldset = styled.fieldset`
         color: var(--color-primary-dark);
       }
     }
+  }
+
+  .checkProffy {
+    font: 700 1.8rem Archivo;
+    color: #000000;
+    border: ridge 1rem;
+
+    input {
+      margin-left: 1rem;
+      color: var(--color-primary-light);
+      margin-top: 2.4rem;
+    }
+  }
+
+  .checkProffy + .input-block-form {
+    margin-top: 2.4rem;
   }
 
   .input-block-form + .textarea-block,

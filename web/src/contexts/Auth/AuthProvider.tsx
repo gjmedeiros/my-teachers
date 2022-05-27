@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { userApi } from '../../hooks/userApi'
+import { userApi } from '../../services/userApi'
 import { User } from '../../types/User'
 import { AuthContext } from './AuthContext'
 

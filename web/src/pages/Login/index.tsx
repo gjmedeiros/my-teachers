@@ -8,7 +8,7 @@ import LandingImg from '../../assets/images/landing.svg'
 import logoImg from '../../assets/images/logo.svg'
 import InputLogin from '../../components/UI/Input/Login'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
-import { connectionsApi } from '../../hooks/connectionsApi'
+import { connectionsApi } from '../../services/connectionsApi'
 import {
   Container,
   LogoContainer,

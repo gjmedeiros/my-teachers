@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import 'react-circular-progressbar/dist/styles.css'
-
 const styled = { createGlobalStyle }
 
 export default styled.createGlobalStyle`

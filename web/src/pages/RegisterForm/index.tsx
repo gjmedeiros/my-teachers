@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import warningIcon from '../../assets/images/icons/warning.svg'
 import FileList from '../../components/FileList'
 import PageHeader from '../../components/PageHeader'
-import InputForm from '../../components/UI/Input/RegisterForm'
+import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
 import Textarea from '../../components/UI/Textarea'
 import Upload from '../../components/Upload'
-import { classesApi } from '../../hooks/classesApi'
+import { classesApi } from '../../services/classesApi'
 import { UploadedFiles } from '../../types/UploadedFiles'
 import { BlockFile, Container, Fieldset, Footer } from './styles'
 
@@ -22,6 +22,7 @@ function RegisterForm() {
 
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles | null>()
 
+  const [password, setPassword] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [bio, setBio] = useState('')
   const [subject, setSubject] = useState('')
@@ -137,6 +138,21 @@ function RegisterForm() {
               <Upload onUpload={handleUpload} />
               {uploadedFiles != null && <FileList file={uploadedFiles} />}
             </BlockFile>
+
+            <InputForm
+              name="password"
+              label="Password"
+              type="password"
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value)
+              }}
+            />
+
+            <label className="checkProffy" htmlFor="proffy">
+              Sou um Professor
+              <input name="check" type="checkbox" id="proffy" />
+            </label>
 
             <InputForm
               name="whatsapp"

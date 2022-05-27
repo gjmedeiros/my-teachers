@@ -2,9 +2,9 @@ import { useState, FormEvent } from 'react'
 
 import PageHeader from '../../components/PageHeader'
 import TeacherItem from '../../components/TeacherItem'
-import InputForm from '../../components/UI/Input/RegisterForm'
+import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
-import { classesApi } from '../../hooks/classesApi'
+import { classesApi } from '../../services/classesApi'
 import { Teacher } from '../../types/Teacher'
 import { Container, Form } from './styles'
 

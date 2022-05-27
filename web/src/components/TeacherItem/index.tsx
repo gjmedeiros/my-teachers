@@ -1,7 +1,7 @@
 import React from 'react'
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
-import { connectionsApi } from '../../hooks/connectionsApi'
+import { connectionsApi } from '../../services/connectionsApi'
 import { Teacher } from '../../types/Teacher'
 import { ContainerTeacherItem } from './styles'
 
