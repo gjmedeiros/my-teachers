@@ -20,6 +20,10 @@ export const Container = styled.div`
     padding-top: 6.4rem;
     overflow: hidden;
 
+    fieldset + fieldset {
+      margin-top: 5rem;
+    }
+
     label {
       color: var(--color-text-complement);
     }
@@ -56,9 +60,9 @@ export const Fieldset = styled.fieldset`
   border: 0;
   padding: 0 2.4rem;
 
-  & + fieldset {
+  /* & + fieldset {
     margin-top: 6.4rem;
-  }
+  } */
 
   legend {
     font: 700 2.4rem Archivo;
@@ -87,18 +91,23 @@ export const Fieldset = styled.fieldset`
 
   .checkProffy {
     font: 700 1.8rem Archivo;
+    background-color: var(--color-primary-light);
     color: #000000;
-    border: ridge 1rem;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    height: 4rem;
+    width: 22rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
 
     input {
       margin-left: 1rem;
       color: var(--color-primary-light);
-      margin-top: 2.4rem;
+      height: 2.3rem;
+      width: 2.3rem;
     }
-  }
-
-  .checkProffy + .input-block-form {
-    margin-top: 2.4rem;
   }
 
   .input-block-form + .textarea-block,
