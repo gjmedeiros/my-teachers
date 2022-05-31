@@ -1,6 +1,6 @@
 import filesize from 'filesize'
 import { uniqueId } from 'lodash'
-import React, { useState, FormEvent, ChangeEvent } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
@@ -10,18 +10,22 @@ import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
 import Textarea from '../../components/UI/Textarea'
 import Upload from '../../components/Upload'
-import { classesApi } from '../../services/classesApi'
+import { studentApi } from '../../services/studentApi'
+import { teacherApi } from '../../services/teacherApi'
+import { ScheduleItems } from '../../types/ScheduleItems'
 import { UploadedFiles } from '../../types/UploadedFiles'
 import { BlockFile, Container, Fieldset, Footer } from './styles'
 
 function RegisterForm() {
   const navigate = useNavigate()
-  const api = classesApi()
+
+  const apiTeacher = teacherApi()
+  const apiStudent = studentApi()
 
   const [name, setName] = useState('')
 
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles | null>()
-
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [bio, setBio] = useState('')
@@ -30,7 +34,7 @@ function RegisterForm() {
 
   const [isTeacher, setIsTeacher] = useState(false)
 
-  const [scheduleItems, setScheduleItems] = useState([
+  const [scheduleItems, setScheduleItems] = useState<ScheduleItems>([
     {
       week_day: 0,
       from: '',
@@ -79,24 +83,37 @@ function RegisterForm() {
   const handleRegister = async (e: FormEvent) => {
     e.preventDefault()
 
-    await api
-      .create(
-        name,
-        uploadedFiles!.preview,
-        whatsapp,
-        bio,
-        subject,
-        cost,
-        scheduleItems
-      )
-      .then(() => {
-        alert('Cadastro realizado com sucesso!')
+    if (isTeacher) {
+      await apiTeacher
+        .createTeacher(
+          name,
+          uploadedFiles!.preview,
+          whatsapp,
+          bio,
+          subject,
+          cost,
+          scheduleItems
+        )
+        .then(() => {
+          alert('Cadastro realizado com sucesso!')
 
-        navigate('/')
-      })
-      .catch(() => {
-        alert('Erro no cadastro!')
-      })
+          navigate('/')
+        })
+        .catch(() => {
+          alert('Erro no cadastro!')
+        })
+    } else {
+      await apiStudent
+        .createStudent(name, uploadedFiles!.preview, whatsapp)
+        .then(() => {
+          alert('Cadastro realizado com sucesso!')
+
+          navigate('/')
+        })
+        .catch(() => {
+          alert('Erro no cadastro!')
+        })
+    }
   }
 
   const handleUpload = (files: File[]) => {
@@ -117,7 +134,7 @@ function RegisterForm() {
   return (
     <Container>
       <PageHeader
-        title="Que incrível que você quer dar aulas."
+        title="Que incrível."
         description="O primeiro passo é preencher este formulário de inscrição."
       />
 
@@ -140,6 +157,16 @@ function RegisterForm() {
               <Upload onUpload={handleUpload} />
               {uploadedFiles != null && <FileList file={uploadedFiles} />}
             </BlockFile>
+
+            <InputForm
+              name="email"
+              label="E-mail"
+              type="email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value)
+              }}
+            />
 
             <InputForm
               name="password"
@@ -186,7 +213,6 @@ function RegisterForm() {
 
               <Fieldset>
                 <legend>Sobre a aula</legend>
-
                 <Select
                   name="subject"
                   label="Matéria"
@@ -207,15 +233,12 @@ function RegisterForm() {
                     { value: 'Química', label: 'Química' }
                   ]}
                 />
-
                 <InputForm
                   name="cost"
                   label="Custo da hora por aula"
                   type="text"
                   value={cost}
-                  onChange={e => {
-                    setCost(e.target.value)
-                  }}
+                  onChange={e => setCost(e.target.value)}
                 />
               </Fieldset>
 
@@ -246,13 +269,14 @@ function RegisterForm() {
                           )
                         }
                         options={[
-                          { value: '0', label: 'Domingo' },
-                          { value: '1', label: 'Segunda-feira' },
-                          { value: '2', label: 'Terça-feira' },
-                          { value: '3', label: 'Quarta-feira' },
-                          { value: '4', label: 'Quinta-feira' },
-                          { value: '5', label: 'Sexta-feira' },
-                          { value: '6', label: 'Sábado' }
+                          { value: '0', label: 'Selecione o dia' },
+                          { value: '1', label: 'Domingo' },
+                          { value: '2', label: 'Segunda-feira' },
+                          { value: '3', label: 'Terça-feira' },
+                          { value: '4', label: 'Quarta-feira' },
+                          { value: '5', label: 'Quinta-feira' },
+                          { value: '6', label: 'Sexta-feira' },
+                          { value: '7', label: 'Sábado' }
                         ]}
                       />
 

@@ -6,31 +6,29 @@ export default styled.createGlobalStyle`
   :root {
     font-size: 60%;
 
-    --color-background: #e1e1e3;
-    --color-primary-lighter: #9871f5;
-    --color-primary-light: #916bea;
+    --color-background: #e5e5e5;
 
     --color-primary: #04284e;
 
+    --color-primary-light: #916bea;
     --color-primary-dark: #774dd6;
-    --color-primary-darker: #6842c2;
+
     --color-secundary: #04d361;
     --color-secundary-dark: #04bf58;
+
     --color-title-in-primary: #ffffff;
     --color-text-in-primary: #d4c2ff;
     --color-text-title: #32264d;
     --color-text-complement: #9c98a6;
     --color-text-base: #6a6180;
     --color-line-in-white: #e6e6f0;
-    --color-input-background: #ddd8d8ec;
+
+    --color-input-background: #fafafc;
+    --color-select-text: #c1bccc;
+
     --color-button-text: #ffffff;
     --color-box-base: #ffffff;
     --color-box-footer: #fafafc;
-
-    /*Teste  */
-    --color-border-input-login: #f8f8fc;
-    --color-button-primary-login: #21d4fd;
-    --color-button-secundary-login: #176999;
   }
 
   * {

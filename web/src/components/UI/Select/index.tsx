@@ -17,7 +17,7 @@ const Select: React.FC<INSelectProps> = ({ label, name, options, ...rest }) => {
       <label htmlFor={name}>{label}</label>
       <select value="" id={name} {...rest}>
         <option value="" disabled hidden>
-          Selecione uma opção
+          Selecione qual você quer ensinar
         </option>
 
         {options.map(option => {

@@ -4,12 +4,12 @@ import PageHeader from '../../components/PageHeader'
 import TeacherItem from '../../components/TeacherItem'
 import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
-import { classesApi } from '../../services/classesApi'
+import { teacherApi } from '../../services/teacherApi'
 import { Teacher } from '../../types/Teacher'
 import { Container, Form } from './styles'
 
 function TeacherList() {
-  const api = classesApi()
+  const api = teacherApi()
 
   const [teachers, setTeachers] = useState([])
 

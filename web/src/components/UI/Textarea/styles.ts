@@ -5,12 +5,16 @@ export const ConatinerTextArea = styled.div.attrs({
 })`
   position: relative;
 
-  /* .textarea-block + .textarea-block {
-    margin-top: 1.4rem;
-  } */
-
   label {
     font-size: 1.4rem;
+    display: flex;
+    flex-direction: row;
+
+    p {
+      font-size: 1.2rem;
+      color: var(--color-select-text);
+      margin-left: 2rem;
+    }
   }
 
   textarea {
