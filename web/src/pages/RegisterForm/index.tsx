@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
 import FileList from '../../components/FileList'
-import PageHeader from '../../components/PageHeader'
+import HeaderRegisterForm from '../../components/RegisterForm/HeaderRegisterForm'
 import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
 import Textarea from '../../components/UI/Textarea'
@@ -133,7 +133,7 @@ function RegisterForm() {
 
   return (
     <Container>
-      <PageHeader
+      <HeaderRegisterForm
         title="Que incrível."
         description="O primeiro passo é preencher este formulário de inscrição."
       />

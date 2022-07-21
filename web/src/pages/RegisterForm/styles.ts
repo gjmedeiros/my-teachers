@@ -44,6 +44,10 @@ export const Container = styled.div`
         grid-template-columns: 2fr 1fr 1fr;
         column-gap: 1.6rem;
 
+        & + .schedule-item {
+          margin-top: 1.5rem;
+        }
+
         .input-block-form {
           margin-top: 0 !important;
 

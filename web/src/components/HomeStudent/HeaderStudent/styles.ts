@@ -14,17 +14,8 @@ export const Header = styled.header`
     color: var(--color-text-in-primary);
     padding: 1.6rem 0;
 
-    a {
-      height: 3.2rem;
-      transition: opacity 0.2s;
-
-      :hover {
-        opacity: 0.6;
-      }
-    }
-
     > img {
-      height: 2rem;
+      height: 2.5rem;
     }
   }
 
@@ -49,11 +40,15 @@ export const Header = styled.header`
     }
   }
 
+  .menu-bar {
+    background-color: ;
+  }
+
   @media (min-width: 700px) {
     height: 340px;
 
     .top-bar-container {
-      max-width: 1100px;
+      max-width: 1500px;
     }
 
     .header-content {

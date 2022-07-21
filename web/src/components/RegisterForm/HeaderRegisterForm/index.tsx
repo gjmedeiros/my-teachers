@@ -2,8 +2,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import backIcon from '../../assets/images/icons/back.svg'
-import logoImg from '../../assets/images/logo.svg'
+import backIcon from '../../../assets/images/icons/back.svg'
+import logoImg from '../../../assets/images/logo.svg'
 import { Header } from './styles'
 
 interface INPageHeaderProps {
@@ -12,7 +12,7 @@ interface INPageHeaderProps {
   children?: React.ReactNode
 }
 
-const PageHeader: React.FC<INPageHeaderProps> = ({
+const HeaderRegisterForm: React.FC<INPageHeaderProps> = ({
   title,
   description,
   children
@@ -35,4 +35,4 @@ const PageHeader: React.FC<INPageHeaderProps> = ({
   )
 }
 
-export default PageHeader
+export default HeaderRegisterForm

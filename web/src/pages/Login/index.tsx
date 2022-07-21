@@ -49,6 +49,9 @@ function Login() {
         // eslint-disable-next-line no-alert
         alert('Falha na Autenticação')
       }
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Insira os dados de Login')
     }
   }
 

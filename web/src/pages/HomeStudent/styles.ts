@@ -63,12 +63,10 @@ export const Form = styled.form`
     }
   }
 
-  .input-block {
+  .input-block-form {
     position: relative;
 
-    & + .input-block {
-      margin-top: 1.4rem;
-    }
+    margin-top: 1.4rem;
 
     label {
       font-size: 1.4rem;
@@ -125,7 +123,11 @@ export const Form = styled.form`
     position: absolute;
     bottom: -28px;
 
-    .input-block + .input-block,
+    .input-block-form {
+      margin-top: 0rem;
+    }
+
+    .input-block-form + .input-block-form,
     .select-block + .select-block {
       margin-top: 0;
     }
