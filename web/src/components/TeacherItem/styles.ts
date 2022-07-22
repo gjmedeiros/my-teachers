@@ -17,7 +17,11 @@ export const ContainerTeacherItem = styled.article.attrs({
     img {
       width: 8rem;
       height: 8rem;
+      resize: contain;
       border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     div {

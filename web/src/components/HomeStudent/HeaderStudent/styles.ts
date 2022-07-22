@@ -19,6 +19,60 @@ export const Header = styled.header`
     }
   }
 
+  .menu-bar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+
+    .button-close-menu {
+      display: flex;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .profile-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      padding: 1rem;
+      margin: 1rem;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      li {
+        list-style-type: none;
+
+        & + li {
+          margin-top: 1.5rem;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          color: var(--color-text);
+
+          strong {
+            font: 700 2rem Archivo;
+            display: block;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   .header-content {
     width: 90%;
     margin: 0 auto;
@@ -38,10 +92,6 @@ export const Header = styled.header`
       color: var(--color-text-in-primary);
       margin-top: 2.4rem;
     }
-  }
-
-  .menu-bar {
-    background-color: ;
   }
 
   @media (min-width: 700px) {

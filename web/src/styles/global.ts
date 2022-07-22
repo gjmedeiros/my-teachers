@@ -19,6 +19,7 @@ export default styled.createGlobalStyle`
     --color-title-in-primary: #ffffff;
     --color-text-in-primary: #d4c2ff;
     --color-text-title: #32264d;
+    --color-text: #000000
     --color-text-complement: #9c98a6;
     --color-text-base: #6a6180;
     --color-line-in-white: #e6e6f0;

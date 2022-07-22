@@ -87,6 +87,10 @@ function Login() {
                 setPassword(e.target.value)
               }}
             />
+
+            <div className="forgot-password">
+              <Link to="/">Esqueceu sua senha ?</Link>
+            </div>
           </fieldset>
           <footer>
             <ButtonsContainer>

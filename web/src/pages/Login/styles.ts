@@ -27,6 +27,20 @@ export const Container = styled.div`
           margin-top: 2.3rem;
         }
       }
+
+      .forgot-password {
+        margin-top: 1rem;
+
+        a {
+          color: var(--color-text-base);
+          text-decoration: none;
+          transition: opacity 0.2s;
+
+          :hover {
+            opacity: 0.5;
+          }
+        }
+      }
     }
   }
 

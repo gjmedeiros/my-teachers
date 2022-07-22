@@ -13,9 +13,9 @@ function App() {
       <Route
         path="/study"
         element={
-          <RequireAuth>
-            <HomeStudent />
-          </RequireAuth>
+          // <RequireAuth>
+          <HomeStudent />
+          // </RequireAuth>
         }
       />
       <Route path="/register" element={<RegisterForm />} />
