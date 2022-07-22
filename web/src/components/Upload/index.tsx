@@ -20,8 +20,7 @@ const Upload: React.FC<IUploadProps> = ({ onUpload }) => {
     if (!isDragActive) {
       return (
         <UploadMessage>
-          Arraste e solte alguns arquivos aqui ou clique para selecionar os
-          arquivos
+          Arraste ou Clique para selecionar os arquivos
         </UploadMessage>
       )
     }

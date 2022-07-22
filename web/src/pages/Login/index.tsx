@@ -8,7 +8,7 @@ import LandingImg from '../../assets/images/landing.svg'
 import logoImg from '../../assets/images/logo.svg'
 import InputLogin from '../../components/UI/Input/Login'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
-import { connectionsApi } from '../../hooks/connectionsApi'
+import { connectionsApi } from '../../services/connectionsApi'
 import {
   Container,
   LogoContainer,
@@ -49,6 +49,9 @@ function Login() {
         // eslint-disable-next-line no-alert
         alert('Falha na Autenticação')
       }
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Insira os dados de Login')
     }
   }
 
@@ -84,6 +87,10 @@ function Login() {
                 setPassword(e.target.value)
               }}
             />
+
+            <div className="forgot-password">
+              <Link to="/">Esqueceu sua senha ?</Link>
+            </div>
           </fieldset>
           <footer>
             <ButtonsContainer>

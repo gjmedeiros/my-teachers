@@ -27,6 +27,20 @@ export const Container = styled.div`
           margin-top: 2.3rem;
         }
       }
+
+      .forgot-password {
+        margin-top: 1rem;
+
+        a {
+          color: var(--color-text-base);
+          text-decoration: none;
+          transition: opacity 0.2s;
+
+          :hover {
+            opacity: 0.5;
+          }
+        }
+      }
     }
   }
 
@@ -108,12 +122,13 @@ export const ButtonsContainer = styled.div`
     text-decoration: none;
     color: var(--color-button-text);
 
-    background: var(--color-primary-lighter);
+    cursor: pointer;
+    background: var(--color-primary-light);
 
     transition: background-color 0.2s;
 
     :hover {
-      background: var(--color-primary-light);
+      background: var(--color-primary-dark);
     }
 
     img {
@@ -148,11 +163,19 @@ export const ButtonsContainer = styled.div`
   }
 
   @media (min-width: 1100px) {
+    button {
+      font-size: 2.4rem;
+
+      img {
+        margin-right: 1rem;
+      }
+    }
+
     a {
       font-size: 2.4rem;
 
       img {
-        margin-right: 2.5rem;
+        margin-right: 1rem;
       }
     }
   }

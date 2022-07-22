@@ -14,17 +14,62 @@ export const Header = styled.header`
     color: var(--color-text-in-primary);
     padding: 1.6rem 0;
 
-    a {
-      height: 3.2rem;
-      transition: opacity 0.2s;
+    > img {
+      height: 2.5rem;
+    }
+  }
 
-      :hover {
-        opacity: 0.6;
-      }
+  .menu-bar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+
+    .button-close-menu {
+      display: flex;
+      justify-content: flex-end;
+      padding: 2rem;
     }
 
-    > img {
-      height: 2rem;
+    .profile-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      padding: 1rem;
+      margin: 1rem;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      li {
+        list-style-type: none;
+
+        & + li {
+          margin-top: 1.5rem;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          color: var(--color-text);
+
+          strong {
+            font: 700 2rem Archivo;
+            display: block;
+            margin-left: 1rem;
+          }
+        }
+      }
     }
   }
 
@@ -53,7 +98,7 @@ export const Header = styled.header`
     height: 340px;
 
     .top-bar-container {
-      max-width: 1100px;
+      max-width: 1500px;
     }
 
     .header-content {

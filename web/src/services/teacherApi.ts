@@ -1,9 +1,9 @@
 import { ScheduleItems } from '../types/ScheduleItems'
 import api from './api'
 
-export const classesApi = () => ({
+export const teacherApi = () => ({
   index: async (subject: string, week_day: string, time: string) => {
-    const response = await api.get('/classes', {
+    const response = await api.get('/teacher', {
       params: {
         subject,
         week_day,
@@ -14,7 +14,7 @@ export const classesApi = () => ({
     return response.data
   },
 
-  create: async (
+  createTeacher: async (
     name: string,
     avatar: string,
     whatsapp: string,
@@ -23,7 +23,7 @@ export const classesApi = () => ({
     cost: string,
     scheduleItems: ScheduleItems
   ) => {
-    await api.post('/classes', {
+    await api.post('/teacher', {
       name,
       avatar,
       whatsapp,

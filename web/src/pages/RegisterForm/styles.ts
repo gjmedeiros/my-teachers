@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   main {
     background: var(--color-box-base);
-    /* background: #000000; */
 
     width: 100%;
     max-width: 74rem;
@@ -20,6 +19,10 @@ export const Container = styled.div`
     margin: -3.2rem auto 3.2rem;
     padding-top: 6.4rem;
     overflow: hidden;
+
+    fieldset + fieldset {
+      margin-top: 5rem;
+    }
 
     label {
       color: var(--color-text-complement);
@@ -41,11 +44,15 @@ export const Container = styled.div`
         grid-template-columns: 2fr 1fr 1fr;
         column-gap: 1.6rem;
 
+        & + .schedule-item {
+          margin-top: 1.5rem;
+        }
+
         .input-block-form {
           margin-top: 0 !important;
 
           & + .input-block-form {
-            margin-top: 1.4rem;
+            margin-top: 1.5rem;
           }
         }
       }
@@ -56,10 +63,6 @@ export const Container = styled.div`
 export const Fieldset = styled.fieldset`
   border: 0;
   padding: 0 2.4rem;
-
-  & + fieldset {
-    margin-top: 6.4rem;
-  }
 
   legend {
     font: 700 2.4rem Archivo;
@@ -75,7 +78,7 @@ export const Fieldset = styled.fieldset`
     .button-new-schedule {
       background: none;
       border: 0;
-      color: var(--color-primary);
+      color: var(--color-primary-light);
       font: 700 1.6rem Archivo;
       cursor: pointer;
       transition: color 0.2s;
@@ -84,6 +87,32 @@ export const Fieldset = styled.fieldset`
         color: var(--color-primary-dark);
       }
     }
+  }
+
+  .checkProffy {
+    font: 700 1.7rem Archivo;
+    background-color: var(--color-primary-light);
+    color: #000000;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    height: 3.5rem;
+    width: 22rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+    input {
+      margin-left: 1rem;
+      color: var(--color-primary-light);
+      height: 2rem;
+      width: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  .input-block-form + .input-block-form {
+    margin-top: 2.4rem;
   }
 
   .input-block-form + .textarea-block,

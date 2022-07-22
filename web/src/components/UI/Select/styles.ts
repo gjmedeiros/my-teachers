@@ -19,6 +19,7 @@ export const ContainerSelect = styled.div.attrs({
     outline: 0;
     padding: 0 1.6rem;
     font: 1.6rem Archivo;
+    color: var(--color-select-text);
   }
 
   :focus-within::after {

@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { RequireAuth } from './contexts/Auth/RequireAuth'
+import HomeStudent from './pages/HomeStudent'
 import Login from './pages/Login'
 import RegisterForm from './pages/RegisterForm'
-import TeacherList from './pages/TeacherList'
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <Route
         path="/study"
         element={
-          <RequireAuth>
-            <TeacherList />
-          </RequireAuth>
+          // <RequireAuth>
+          <HomeStudent />
+          // </RequireAuth>
         }
       />
       <Route path="/register" element={<RegisterForm />} />

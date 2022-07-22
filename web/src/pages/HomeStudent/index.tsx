@@ -1,15 +1,15 @@
 import { useState, FormEvent } from 'react'
 
-import PageHeader from '../../components/PageHeader'
+import HeaderStudent from '../../components/HomeStudent/HeaderStudent'
 import TeacherItem from '../../components/TeacherItem'
-import InputForm from '../../components/UI/Input/RegisterForm'
+import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
 import Select from '../../components/UI/Select'
-import { classesApi } from '../../hooks/classesApi'
+import { teacherApi } from '../../services/teacherApi'
 import { Teacher } from '../../types/Teacher'
 import { Container, Form } from './styles'
 
-function TeacherList() {
-  const api = classesApi()
+function HomeStudent() {
+  const api = teacherApi()
 
   const [teachers, setTeachers] = useState([])
 
@@ -29,7 +29,7 @@ function TeacherList() {
 
   return (
     <Container>
-      <PageHeader title="Estes são os professores disponíveis.">
+      <HeaderStudent title="Estes são os professores disponíveis.">
         <Form onSubmit={searchTeachers}>
           <Select
             name="subject"
@@ -82,7 +82,7 @@ function TeacherList() {
 
           <button type="submit">Buscar</button>
         </Form>
-      </PageHeader>
+      </HeaderStudent>
 
       <main>
         {teachers.map((teacher: Teacher) => {
@@ -93,4 +93,4 @@ function TeacherList() {
   )
 }
 
-export default TeacherList
+export default HomeStudent
