@@ -3,20 +3,20 @@ import { uniqueId } from 'lodash'
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import warningIcon from '../../assets/images/icons/warning.svg'
-import FileList from '../../components/FileList'
-import HeaderRegisterForm from '../../components/RegisterForm/HeaderRegisterForm'
-import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
-import Select from '../../components/UI/Select'
-import Textarea from '../../components/UI/Textarea'
-import Upload from '../../components/Upload'
-import { studentApi } from '../../services/studentApi'
-import { teacherApi } from '../../services/teacherApi'
-import { ScheduleItems } from '../../types/ScheduleItems'
-import { UploadedFiles } from '../../types/UploadedFiles'
+import warningIcon from '../../../assets/images/icons/warning.svg'
+import FileList from '../../../components/FileList'
+import InputForm from '../../../components/UI/Input/RegisterForm/InputForm'
+import Select from '../../../components/UI/Select'
+import Textarea from '../../../components/UI/Textarea'
+import Upload from '../../../components/Upload'
+import UserCreateHeader from '../../../components/User/Create/Header'
+import { studentApi } from '../../../services/studentApi'
+import { teacherApi } from '../../../services/teacherApi'
+import { ScheduleItems } from '../../../types/ScheduleItems'
+import { UploadedFiles } from '../../../types/UploadedFiles'
 import { BlockFile, Container, Fieldset, Footer } from './styles'
 
-function RegisterForm() {
+function PagesUserCreate() {
   const navigate = useNavigate()
 
   const apiTeacher = teacherApi()
@@ -133,7 +133,7 @@ function RegisterForm() {
 
   return (
     <Container>
-      <HeaderRegisterForm
+      <UserCreateHeader
         title="Que incrível."
         description="O primeiro passo é preencher este formulário de inscrição."
       />
@@ -323,4 +323,4 @@ function RegisterForm() {
   )
 }
 
-export default RegisterForm
+export default PagesUserCreate

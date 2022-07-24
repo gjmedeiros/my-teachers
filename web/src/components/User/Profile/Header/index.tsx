@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { MdMenu, MdArrowBackIosNew, MdSettings, MdHome } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
-import logoImg from '../../../assets/images/logo.svg'
-import profile from '../../../assets/images/Profile.png'
+import logoImg from '../../../../assets/images/logo.svg'
+import profile from '../../../../assets/images/Profile.png'
 import { Header } from './styles'
 
 interface INPageHeaderProps {

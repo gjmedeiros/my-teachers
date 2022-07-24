@@ -44,7 +44,7 @@ function Login() {
       const isLogged = await auth.signin(user, password)
 
       if (isLogged) {
-        navigate('/study')
+        navigate('/user/profile')
       } else {
         // eslint-disable-next-line no-alert
         alert('Falha na Autenticação')
@@ -99,7 +99,7 @@ function Login() {
                 Login
               </button>
 
-              <Link to="/register">
+              <Link to="/user/create">
                 <img src={giveClassesIcon} alt="Cadastrar" />
                 Cadastrar
               </Link>

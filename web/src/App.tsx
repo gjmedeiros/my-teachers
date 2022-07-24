@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { RequireAuth } from './contexts/Auth/RequireAuth'
-import HomeStudent from './pages/HomeStudent'
 import Login from './pages/Login'
-import RegisterForm from './pages/RegisterForm'
+import PagesUserCreate from './pages/User/Create'
+import PagesUserProfile from './pages/User/Profile'
 
 function App() {
   return (
@@ -11,14 +11,14 @@ function App() {
       <Route path="/" element={<Login />} />
 
       <Route
-        path="/study"
+        path="/user/profile"
         element={
           // <RequireAuth>
-          <HomeStudent />
+          <PagesUserProfile />
           // </RequireAuth>
         }
       />
-      <Route path="/register" element={<RegisterForm />} />
+      <Route path="/user/create" element={<PagesUserCreate />} />
     </Routes>
   )
 }
