@@ -61,14 +61,14 @@ const UserProfileHeader: React.FC<INPageHeaderProps> = ({
 
           <ul>
             <li>
-              <Link to="/">
-                <MdHome style={{ cursor: 'pointer' }} size={28} />
+              <Link to="/user/profile">
+                <MdHome style={{ cursor: 'pointer' }} size={25} />
                 <strong>Home</strong>
               </Link>
             </li>
             <li>
-              <Link to="/">
-                <MdSettings style={{ cursor: 'pointer' }} size={28} />
+              <Link to="/user/settings">
+                <MdSettings style={{ cursor: 'pointer' }} size={25} />
                 <strong>Settings</strong>
               </Link>
             </li>

@@ -11,6 +11,11 @@ function App() {
       <Route path="/" element={<Navigate to="/user/login" />} />
 
       <Route path="/user/login" element={<Login />} />
+      <Route path="/user/recover" element={<Login />} />
+
+      <Route path="/user/create" element={<PagesUserCreate />} />
+      <Route path="/user/create/sucess" element={<Login />} />
+
       <Route
         path="/user/profile"
         element={
@@ -19,7 +24,6 @@ function App() {
           // </RequireAuth>
         }
       />
-      <Route path="/user/create" element={<PagesUserCreate />} />
     </Routes>
   )
 }

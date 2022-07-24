@@ -14,7 +14,7 @@ export const Header = styled.header`
     color: var(--color-text-in-primary);
     padding: 1.6rem 0;
 
-    > img {
+    img {
       height: 2.5rem;
     }
   }
@@ -33,14 +33,13 @@ export const Header = styled.header`
     .profile-menu {
       display: flex;
       align-items: center;
-    }
 
-    img {
-      width: 10rem;
-      height: 10rem;
-      border-radius: 50%;
-      padding: 1rem;
-      margin: 1rem;
+      img {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        padding: 1rem;
+      }
     }
 
     ul {
@@ -64,7 +63,7 @@ export const Header = styled.header`
           color: var(--color-text);
 
           strong {
-            font: 700 2rem Archivo;
+            font: 700 1.5rem Archivo;
             display: block;
             margin-left: 1rem;
           }

@@ -10,10 +10,10 @@ import { ScheduleItems } from '../../../types/ScheduleItems'
 import { UploadedFiles } from '../../../types/UploadedFiles'
 import Input from '../../UI/Input'
 import Select from '../../UI/Select'
-import Textarea from '../../UI/Textarea'
 import FileList from './FileList'
 import Header from './Header'
 import { BlockFile, Fieldset, Footer } from './styles'
+import Textarea from './Textarea'
 import Upload from './Upload'
 
 const UserCreate = () => {
