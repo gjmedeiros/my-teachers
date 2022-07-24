@@ -3,20 +3,20 @@ import { uniqueId } from 'lodash'
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import warningIcon from '../../assets/images/icons/warning.svg'
-import FileList from '../../components/FileList'
-import HeaderRegisterForm from '../../components/RegisterForm/HeaderRegisterForm'
-import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
-import Select from '../../components/UI/Select'
-import Textarea from '../../components/UI/Textarea'
-import Upload from '../../components/Upload'
-import { studentApi } from '../../services/studentApi'
-import { teacherApi } from '../../services/teacherApi'
-import { ScheduleItems } from '../../types/ScheduleItems'
-import { UploadedFiles } from '../../types/UploadedFiles'
-import { BlockFile, Container, Fieldset, Footer } from './styles'
+import warningIcon from '../../../assets/images/icons/warning.svg'
+import { studentApi } from '../../../services/studentApi'
+import { teacherApi } from '../../../services/teacherApi'
+import { ScheduleItems } from '../../../types/ScheduleItems'
+import { UploadedFiles } from '../../../types/UploadedFiles'
+import Input from '../../UI/Input'
+import Select from '../../UI/Select'
+import Textarea from '../../UI/Textarea'
+import FileList from './FileList'
+import Header from './Header'
+import { BlockFile, Fieldset, Footer } from './styles'
+import Upload from './Upload'
 
-function RegisterForm() {
+const UserCreate = () => {
   const navigate = useNavigate()
 
   const apiTeacher = teacherApi()
@@ -132,8 +132,8 @@ function RegisterForm() {
   }
 
   return (
-    <Container>
-      <HeaderRegisterForm
+    <>
+      <Header
         title="Que incrível."
         description="O primeiro passo é preencher este formulário de inscrição."
       />
@@ -143,7 +143,7 @@ function RegisterForm() {
           <Fieldset>
             <legend>Seus dados</legend>
 
-            <InputForm
+            <Input
               name="name"
               label="Nome completo"
               type="text"
@@ -158,7 +158,7 @@ function RegisterForm() {
               {uploadedFiles != null && <FileList file={uploadedFiles} />}
             </BlockFile>
 
-            <InputForm
+            <Input
               name="email"
               label="E-mail"
               type="email"
@@ -168,7 +168,7 @@ function RegisterForm() {
               }}
             />
 
-            <InputForm
+            <Input
               name="password"
               label="Password"
               type="password"
@@ -194,7 +194,7 @@ function RegisterForm() {
           {isTeacher ? (
             <>
               <Fieldset>
-                <InputForm
+                <Input
                   name="whatsapp"
                   label="Whatsapp"
                   value={whatsapp}
@@ -233,7 +233,8 @@ function RegisterForm() {
                     { value: 'Química', label: 'Química' }
                   ]}
                 />
-                <InputForm
+
+                <Input
                   name="cost"
                   label="Custo da hora por aula"
                   type="text"
@@ -280,7 +281,7 @@ function RegisterForm() {
                         ]}
                       />
 
-                      <InputForm
+                      <Input
                         name="from"
                         label="Das"
                         type="time"
@@ -290,7 +291,7 @@ function RegisterForm() {
                         }
                       />
 
-                      <InputForm
+                      <Input
                         name="to"
                         label="Até"
                         type="time"
@@ -319,8 +320,8 @@ function RegisterForm() {
           </Footer>
         </form>
       </main>
-    </Container>
+    </>
   )
 }
 
-export default RegisterForm
+export default UserCreate

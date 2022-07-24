@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { MdMenu, MdArrowBackIosNew, MdSettings, MdHome } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
-import logoImg from '../../../assets/images/logo.svg'
-import profile from '../../../assets/images/Profile.png'
+import logoImg from '../../../../assets/images/logo.svg'
+import profile from '../../../../assets/images/Profile.png'
 import { Header } from './styles'
 
 interface INPageHeaderProps {
@@ -14,7 +14,7 @@ interface INPageHeaderProps {
   children?: React.ReactNode
 }
 
-const HeaderStudent: React.FC<INPageHeaderProps> = ({
+const UserProfileHeader: React.FC<INPageHeaderProps> = ({
   title,
   description,
   children
@@ -85,4 +85,4 @@ const HeaderStudent: React.FC<INPageHeaderProps> = ({
   )
 }
 
-export default HeaderStudent
+export default UserProfileHeader

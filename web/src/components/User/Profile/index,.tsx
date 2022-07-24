@@ -1,14 +1,14 @@
 import { useState, FormEvent } from 'react'
 
-import HeaderStudent from '../../components/HomeStudent/HeaderStudent'
-import TeacherItem from '../../components/TeacherItem'
-import InputForm from '../../components/UI/Input/RegisterForm/InputForm'
-import Select from '../../components/UI/Select'
-import { teacherApi } from '../../services/teacherApi'
-import { Teacher } from '../../types/Teacher'
-import { Container, Form } from './styles'
+import { teacherApi } from '../../../services/teacherApi'
+import { Teacher } from '../../../types/Teacher'
+import Input from '../../UI/Input'
+import Select from '../../UI/Select'
+import Header from './Header'
+import { Form } from './styles'
+import TeacherItem from './TeacherItem'
 
-function HomeStudent() {
+const UserProfile = () => {
   const api = teacherApi()
 
   const [teachers, setTeachers] = useState([])
@@ -28,8 +28,8 @@ function HomeStudent() {
   }
 
   return (
-    <Container>
-      <HeaderStudent title="Estes são os professores disponíveis.">
+    <>
+      <Header title="Estes são os professores disponíveis.">
         <Form onSubmit={searchTeachers}>
           <Select
             name="subject"
@@ -70,7 +70,7 @@ function HomeStudent() {
             ]}
           />
 
-          <InputForm
+          <Input
             name="Hora"
             label="Hora"
             type="time"
@@ -82,15 +82,15 @@ function HomeStudent() {
 
           <button type="submit">Buscar</button>
         </Form>
-      </HeaderStudent>
+      </Header>
 
       <main>
         {teachers.map((teacher: Teacher) => {
           return <TeacherItem key={teacher.id} teacher={teacher} />
         })}
       </main>
-    </Container>
+    </>
   )
 }
 
-export default HomeStudent
+export default UserProfile

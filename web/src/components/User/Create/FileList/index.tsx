@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { UploadedFiles } from '../../types/UploadedFiles'
+import { UploadedFiles } from '../../../../types/UploadedFiles'
 import { Container, FileInfo, Preview } from './styles'
 
 interface IFileListProps {

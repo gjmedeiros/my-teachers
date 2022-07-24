@@ -3,7 +3,7 @@ import React from 'react'
 import { MdArrowBack } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
-import logoImg from '../../../assets/images/logo.svg'
+import logoImg from '../../../../assets/images/logo.svg'
 import { Header } from './styles'
 
 interface INPageHeaderProps {
@@ -12,7 +12,7 @@ interface INPageHeaderProps {
   children?: React.ReactNode
 }
 
-const HeaderRegisterForm: React.FC<INPageHeaderProps> = ({
+const UserCreateHeader: React.FC<INPageHeaderProps> = ({
   title,
   description,
   children
@@ -38,4 +38,4 @@ const HeaderRegisterForm: React.FC<INPageHeaderProps> = ({
   )
 }
 
-export default HeaderRegisterForm
+export default UserCreateHeader
