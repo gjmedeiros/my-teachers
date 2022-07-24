@@ -1,17 +1,25 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
-import Landing from './pages/Landing'
-import TeacherForm from './pages/TeacherForm'
-import TeacherList from './pages/TeacherList'
-
-import './assets/styles/global.css'
+import { RequireAuth } from './contexts/Auth/RequireAuth'
+import PagesUserCreate from './pages/User/Create'
+import Login from './pages/User/Login'
+import PagesUserProfile from './pages/User/Profile'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/study" element={<TeacherList />} />
-      <Route path="/give-classes" element={<TeacherForm />} />
+      <Route path="/" element={<Navigate to="/user/login" />} />
+
+      <Route path="/user/login" element={<Login />} />
+      <Route
+        path="/user/profile"
+        element={
+          // <RequireAuth>
+          <PagesUserProfile />
+          // </RequireAuth>
+        }
+      />
+      <Route path="/user/create" element={<PagesUserCreate />} />
     </Routes>
   )
 }
