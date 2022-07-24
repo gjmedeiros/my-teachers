@@ -1,22 +1,17 @@
 import { useState, useEffect, FormEvent, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import giveClassesIcon from '../../assets/images/icons/give-classes.svg'
-import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
-import studyIcon from '../../assets/images/icons/study.svg'
-import LandingImg from '../../assets/images/landing.svg'
-import logoImg from '../../assets/images/logo.svg'
-import InputLogin from '../../components/UI/Input/Login'
-import { AuthContext } from '../../contexts/Auth/AuthContext'
-import { connectionsApi } from '../../services/connectionsApi'
-import {
-  Container,
-  LogoContainer,
-  ButtonsContainer,
-  TotalConnections
-} from './styles'
+import giveClassesIcon from '../../../assets/images/icons/give-classes.svg'
+import purpleHeartIcon from '../../../assets/images/icons/purple-heart.svg'
+import studyIcon from '../../../assets/images/icons/study.svg'
+import LandingImg from '../../../assets/images/landing.svg'
+import logoImg from '../../../assets/images/logo.svg'
+import { AuthContext } from '../../../contexts/Auth/AuthContext'
+import { connectionsApi } from '../../../services/connectionsApi'
+import Input from './Input'
+import { LogoContainer, ButtonsContainer, TotalConnections } from './styles'
 
-function Login() {
+const UserLogin = () => {
   const api = connectionsApi()
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
@@ -56,7 +51,7 @@ function Login() {
   }
 
   return (
-    <Container>
+    <>
       <LogoContainer>
         <img src={LandingImg} alt="Plataforma de estudos" />
         <h2>Sua plataforma de estudos online.</h2>
@@ -68,7 +63,7 @@ function Login() {
             <img src={logoImg} alt="Logotipo Proffy" />
           </header>
           <fieldset>
-            <InputLogin
+            <Input
               name="User"
               type="text"
               value={user}
@@ -78,7 +73,7 @@ function Login() {
               }}
             />
 
-            <InputLogin
+            <Input
               name="Password"
               type="password"
               value={password}
@@ -111,8 +106,8 @@ function Login() {
           </footer>
         </form>
       </main>
-    </Container>
+    </>
   )
 }
 
-export default Login
+export default UserLogin

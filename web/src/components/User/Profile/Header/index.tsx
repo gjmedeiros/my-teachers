@@ -14,7 +14,7 @@ interface INPageHeaderProps {
   children?: React.ReactNode
 }
 
-const HeaderStudent: React.FC<INPageHeaderProps> = ({
+const UserProfileHeader: React.FC<INPageHeaderProps> = ({
   title,
   description,
   children
@@ -85,4 +85,4 @@ const HeaderStudent: React.FC<INPageHeaderProps> = ({
   )
 }
 
-export default HeaderStudent
+export default UserProfileHeader

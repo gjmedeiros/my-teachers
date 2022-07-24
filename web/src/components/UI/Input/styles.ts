@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerInputForm = styled.div.attrs({
+export const Container = styled.div.attrs({
   className: 'input-block-form'
 })`
   position: relative;

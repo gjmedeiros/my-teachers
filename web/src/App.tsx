@@ -1,15 +1,16 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 import { RequireAuth } from './contexts/Auth/RequireAuth'
-import Login from './pages/Login'
 import PagesUserCreate from './pages/User/Create'
+import Login from './pages/User/Login'
 import PagesUserProfile from './pages/User/Profile'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Navigate to="/user/login" />} />
 
+      <Route path="/user/login" element={<Login />} />
       <Route
         path="/user/profile"
         element={

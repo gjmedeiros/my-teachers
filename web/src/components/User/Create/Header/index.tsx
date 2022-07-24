@@ -12,7 +12,7 @@ interface INPageHeaderProps {
   children?: React.ReactNode
 }
 
-const HeaderRegisterForm: React.FC<INPageHeaderProps> = ({
+const UserCreateHeader: React.FC<INPageHeaderProps> = ({
   title,
   description,
   children
@@ -38,4 +38,4 @@ const HeaderRegisterForm: React.FC<INPageHeaderProps> = ({
   )
 }
 
-export default HeaderRegisterForm
+export default UserCreateHeader
